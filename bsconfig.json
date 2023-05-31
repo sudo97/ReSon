@@ -1,14 +1,22 @@
 {
-  "name": "rescript-project-template",
-  "sources": {
-    "dir": "src",
-    "subdirs": true
-  },
+  "name": "ReSon",
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    },
+    {
+      "dir": "tests",
+      "subdirs": true,
+      "type": "dev"
+    }
+  ],
   "package-specs": {
     "module": "commonjs",
     "in-source": true
   },
   "suffix": ".bs.js",
   "bsc-flags": ["-open RescriptCore"],
+  "bs-dev-dependencies": ["rescript-test"],
   "bs-dependencies": ["@rescript/core"]
 }

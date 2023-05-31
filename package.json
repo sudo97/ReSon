@@ -1,18 +1,24 @@
 {
-  "name": "rescript-project-template",
+  "name": "reson",
   "version": "0.0.1",
   "keywords": [
-    "rescript"
+    "rescript",
+    "json",
+    "parsing"
   ],
   "license": "MIT",
   "author": "",
   "scripts": {
     "res:build": "rescript",
     "res:clean": "rescript clean",
-    "res:dev": "rescript build -w"
+    "res:dev": "rescript build -w",
+    "test": "retest tests/*.bs.js"
   },
   "dependencies": {
-    "@rescript/core": "*",
-    "rescript": "*"
+    "@rescript/core": "^0.3.1",
+    "rescript": "10.1"
+  },
+  "devDependencies": {
+    "rescript-test": "^4.0.0"
   }
 }
