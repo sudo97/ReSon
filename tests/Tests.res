@@ -126,8 +126,8 @@ test("nullable", () => {
   )
 })
 
-test("flatMap", () => {
-  let p = string->flatMap(s =>
+test("with", () => {
+  let p = string->with(s =>
     switch s {
     | "a" => pure(#a)
     | "b" => pure(#b)
@@ -150,7 +150,7 @@ test("map", () => {
 })
 
 test("field", () => {
-  let p = object->flatMap(obj => {
+  let p = object->with(obj => {
     pure((a, b) => (a, b))->apply(obj->field("a", string))->apply(obj->field("b", number))
   })
   assertEq(
@@ -168,7 +168,7 @@ test("field", () => {
 })
 
 test("optional", () => {
-  let p = object->flatMap(obj => {
+  let p = object->with(obj => {
     pure((a, b) => (a, b))->apply(obj->field("a", string))->apply(obj->optional("b", number))
   })
   assertEq(

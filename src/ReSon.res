@@ -75,6 +75,7 @@ let sequence = (xs: array<result<'a, 'b>>): result<array<'a>, (int, 'b)> => {
 }
 
 let map = (p, f, json) => json->p->Result.map(f)
+let with = (a: Js.Json.t => t<'b>, b: 'b => t<'c>, json: Js.Json.t) => json->a->Result.flatMap(b)
 
 let or = (p1: Js.Json.t => t<'a>, p2: Js.Json.t => t<'a>, json) =>
   switch p1(json) {
@@ -104,8 +105,6 @@ let boolean = (json: Js.Json.t): t<bool> =>
   | Js.Json.JSONTrue => Ok(true)
   | _ => Error(NotBoolean)
   }
-
-let flatMap = (a, b, json) => json->a->Result.flatMap(b)
 
 let array = (p: Js.Json.t => t<'a>, json: Js.Json.t): t<array<'a>> =>
   switch Js.Json.classify(json) {
