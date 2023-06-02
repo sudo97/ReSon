@@ -13,9 +13,12 @@ ReSon is a ReScript library that provides a convenient way to parse JSON data in
 1. Get it from npm
 ```
 # After I get it published lol
-npm install --save @reson
+npm install --save reson
 ```
 2. Update bscofig.json's "bs-dependencies"
+```json
+  "bs-dependenncies": ["ReSon"]
+```
 
 ## Usage
 It all wraps around ReSon.t, which is
