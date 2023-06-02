@@ -74,7 +74,7 @@ let sequence = (xs: array<result<'a, 'b>>): result<array<'a>, (int, 'b)> => {
   , Ok([]))
 }
 
-let map = (p, f, json) => json->p->Result.map(f)
+let map: ('a => t<'b>, 'b => 'd, 'a) => t<'d> = (p, f, json) => json->p->Result.map(f)
 let with = (a: Js.Json.t => t<'b>, b: 'b => t<'c>, json: Js.Json.t) => json->a->Result.flatMap(b)
 
 let or = (p1: Js.Json.t => t<'a>, p2: Js.Json.t => t<'a>, json) =>
